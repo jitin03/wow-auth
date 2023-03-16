@@ -1,0 +1,35 @@
+server:
+  port: 8096
+refreshTokenExpirationDays: 30
+accessTokenExpirationDays: 365
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      uri: mongodb://root:root@${MONGODB_HOST:localhost}:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin
+      password: root
+      database: demo
+      port: 27017
+      host: ${MONGODB_HOST:localhost}
+  application:
+    name: AUTH-SERVICE
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+#    fetch-registry: true
+#  instance:
+#    prefer-ip-address: true
+
+twilio:
+  account_sid: AC6d34d7617d387d7481a2d359a16d9a38
+  auth_token: 1620fb5ae3ee494ae88dfe0772dd414f
+  trial_number: +12765985194
