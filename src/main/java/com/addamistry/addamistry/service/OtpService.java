@@ -36,7 +36,7 @@ public class OtpService {
         PhoneNumber to = new PhoneNumber(phoneNo);
         PhoneNumber from = new PhoneNumber(twilioConfig.getTrialNumber());
         String otp = getRandomOTP(phoneNo);
-        String otpMessage = "Dear Customer , Your OTP is " + otp + ". Use this otp to log in to Garood Application";
+        String otpMessage = "Dear Customer , Your OTP is " + otp + ". Use this otp to log in to WowService";
         Message message = Message
                 .creator(to, from,
                         otpMessage)
